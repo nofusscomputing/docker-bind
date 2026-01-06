@@ -36,5 +36,8 @@ RUN \
   chmod 5771 /etc/bind;
 
 
+VOLUME /var/bind
+
+
 CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf" ]
 # CMD ["named", "-c", "/etc/bind/named.conf", "-g", "-u", "named"]
