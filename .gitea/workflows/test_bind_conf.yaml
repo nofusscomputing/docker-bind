@@ -43,5 +43,6 @@ jobs:
         shell: bash
         run: |
           docker run -t --rm \
+          --entrypoint "" \
           nofusscompuding/bind:dev \
           sh -c 'named-checkconf -z'
