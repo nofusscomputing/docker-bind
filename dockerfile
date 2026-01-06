@@ -16,7 +16,9 @@ RUN \
   rm -f \
     /etc/bind/named.conf.authoritative \
     /etc/bind/named.conf.recursive \
-    /etc/bind/rndc.key;
+    /etc/bind/rndc.key \
+    /var/bind/pri/127.zone \
+    /var/bind/pri/localhost.zone;
 
 
 EXPOSE \
