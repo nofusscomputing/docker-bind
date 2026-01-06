@@ -39,7 +39,17 @@ RUN \
   chmod 5771 /etc/bind;
 
 
-VOLUME /var/bind
+VOLUME includes/etc/bind/conf.d/external
+
+VOLUME includes/etc/bind/conf.d/internal
+
+VOLUME /var/bind/dyn
+
+VOLUME /var/bind/pri
+
+VOLUME /var/bind/sec
+
+VOLUME /var/log
 
 
 CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf" ]
