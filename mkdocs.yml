@@ -1,10 +1,10 @@
-INHERIT: website-template/mkdocs.yml
+INHERIT: docs_template/mkdocs.yml
 
 docs_dir: 'docs'
 
 repo_name: Docker Bind
-repo_url: https://gitlab.com/nofusscomputing/projects/docker-bind
-edit_uri: '/-/ide/project/nofusscomputing/projects/docker-bind/edit/development/-/docs/'
+repo_url: https://github.com/nofusscomputing/docker-bind
+edit_uri: '//edit/development/docs/'
 
 nav:
 - Home: index.md
