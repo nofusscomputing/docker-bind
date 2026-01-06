@@ -1,24 +1,8 @@
 
-ARG VERSION_BIND="9.20.17-r0"
-ARG VERSION_ALPINE="3.23.2"
-
-FROM alpine:${VERSION_ALPINE}
+ARG VERSION_BIND="9.21"
 
 
-ARG VERSION_BIND
-
-
-RUN \
-  apk upgrade --no-cache; \
-  apk add --no-cache \
-    bind==${VERSION_BIND} \
-    supervisor; \
-  rm -f \
-    /etc/bind/named.conf.authoritative \
-    /etc/bind/named.conf.recursive \
-    /etc/bind/rndc.key \
-    /var/bind/pri/127.zone \
-    /var/bind/pri/localhost.zone;
+FROM internetsystemsconsortium/bind9:${VERSION_BIND}
 
 
 EXPOSE \
@@ -27,30 +11,16 @@ EXPOSE \
   # Others required? dnssec, secure updates, sone transfers DOT etc
 
 
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD \
-  supervisorctl status || exit 1
-
-
 COPY includes/ /
 
 
 RUN \
-  chown named:named -R /etc/bind; \
+  chown bind:bind -R /etc/bind; \
   chmod 5771 /etc/bind;
 
 
-VOLUME includes/etc/bind/conf.d/external
+VOLUME /etc/bind
 
-VOLUME includes/etc/bind/conf.d/internal
-
-VOLUME /var/bind/dyn
-
-VOLUME /var/bind/pri
-
-VOLUME /var/bind/sec
+VOLUME /var/bind
 
 VOLUME /var/log
-
-
-CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf" ]
-# CMD ["named", "-c", "/etc/bind/named.conf", "-g", "-u", "named"]
