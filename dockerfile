@@ -16,7 +16,8 @@ COPY includes/ /
 
 RUN \
   chown bind:bind -R /etc/bind; \
-  chmod 5771 /etc/bind;
+  chmod 771 /etc/bind; \
+  chmod +x /entrypoint.sh;
 
 
 VOLUME /etc/bind
@@ -24,3 +25,7 @@ VOLUME /etc/bind
 VOLUME /var/bind
 
 VOLUME /var/log
+
+
+ENTRYPOINT [ "/entrypoint.sh" ]
+
