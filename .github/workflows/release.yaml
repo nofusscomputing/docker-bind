@@ -9,10 +9,10 @@ on:
       - '*'
 
 
-env:
-  # ACTIONS_RUNNER_DEBUG: "true"
-  # ACTIONS_STEP_DEBUG: "true"
-  GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+# env:
+#   # ACTIONS_RUNNER_DEBUG: "true"
+#   # ACTIONS_STEP_DEBUG: "true"
+#   GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
 
 
 jobs:
@@ -43,7 +43,6 @@ jobs:
         with:
           fetch-depth: 0
           fetch-tags: true
-          token: ${{ secrets.WORKFLOW_TOKEN }}
           ref: ${{ github.ref_name }}
 
 
