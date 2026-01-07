@@ -20,12 +20,11 @@ RUN \
   chmod +x /entrypoint.sh;
 
 
-VOLUME /etc/bind
-
-VOLUME /var/bind
-
-VOLUME /var/log
+VOLUME [ \
+    '/etc/bind/conf.d' \
+    '/var/bind' \
+    '/var/log' \
+]
 
 
 ENTRYPOINT [ "/entrypoint.sh" ]
-
