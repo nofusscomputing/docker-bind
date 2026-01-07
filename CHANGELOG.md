@@ -1,3 +1,11 @@
+## 1.0.0-rc2 (2026-01-07)
+
+### feat
+
+- **docker**: Add entrypoint
+- **view**: Allow recursion on internal view
+- **acl**: add acls to own dir
+
 ## 1.0.0-rc1 (2026-01-07)
 
 ### BREAKING CHANGE
