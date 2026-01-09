@@ -1,3 +1,9 @@
+## 1.0.0-rc3 (2026-01-09)
+
+### feat
+
+- **conf**: Add stdout logging
+
 ## 1.0.0-rc2 (2026-01-07)
 
 ### feat
