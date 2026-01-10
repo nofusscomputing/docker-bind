@@ -1,3 +1,9 @@
+## 1.0.0 (2026-01-10)
+
+### Fixes
+
+- ci allow test on master
+
 ## 1.0.0-rc4 (2026-01-10)
 
 ### feat
