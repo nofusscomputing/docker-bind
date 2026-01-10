@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "label": "Project Status",
+  "message": "Active",
+  "namedLogo": "gitea",
+  "color": "green",
+  "style": "plastic"
+}

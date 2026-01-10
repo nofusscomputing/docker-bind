@@ -1,0 +1,48 @@
+---
+
+name: 'Test'
+
+
+on:
+  push:
+    branches:
+      - '**'
+
+env:
+  # ACTIONS_RUNNER_DEBUG: "true"
+  # ACTIONS_STEP_DEBUG: "true"
+  GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+
+
+jobs:
+
+  bump:
+    name: 'Config'
+    if: github.event.commits[0].author.name != 'nfc-bot'
+    runs-on: ubuntu-latest
+    steps:
+
+
+      - name: Checkout Code
+        if: ${{ github.ref_name != 'master' }}
+        uses: http://${{ secrets.ACTIONS_TOKEN_RO }}@gitea-http.git.svc:3000/actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+          token: ${{ secrets.WORKFLOW_TOKEN }}
+
+
+      - name: Docker Build
+        shell: bash
+        run: |
+          docker build . \
+          --tag nofusscompuding/bind:dev
+
+
+      - name: Test Conf
+        shell: bash
+        run: |
+          docker run -t --rm \
+          --entrypoint "" \
+          nofusscompuding/bind:dev \
+          sh -c 'named-checkconf -z'

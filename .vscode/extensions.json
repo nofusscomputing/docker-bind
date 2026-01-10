@@ -2,7 +2,6 @@
     "recommendations": [
         "samuelcolvin.jinjahtml",
         "ms-azuretools.vscode-docker",
-        "gitlab.gitlab-workflow",
         "ms-kubernetes-tools.vscode-kubernetes-tools",
         "redhat.vscode-yaml",
         "jebbs.markdown-extended"

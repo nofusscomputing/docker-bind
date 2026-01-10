@@ -35,7 +35,11 @@ services:
     ports:
       - "53:53"
     volumes:
-      - data_bind9:/etc/bind/conf.d
+      - data_bind9_external:/etc/bind/conf.d/external
+      - data_bind9_internal:/etc/bind/conf.d/internal
+      - zones_bind9_dynamic:/var/bind/dyn
+      - zones_bind9_primary:/var/bind/pri
+      - zones_bind9_secondary:/var/bind/sec
       - logs_bind9:/var/logs
     environment:
       - TIMEZONE=UTC
@@ -46,8 +50,12 @@ services:
 
 
 volumes:
-  data_bind9:
+  data_bind9_external:
+  data_bind9_internal:
   logs_bind9:
+  zones_bind9_dynamic:
+  zones_bind9_primary:
+  zones_bind9_secondary:
 
 
 networks:
