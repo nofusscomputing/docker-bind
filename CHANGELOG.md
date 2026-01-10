@@ -1,3 +1,9 @@
+## 1.0.0-rc4 (2026-01-10)
+
+### feat
+
+- **conf**: Add extra dir for additional dynamic conf
+
 ## 1.0.0-rc3 (2026-01-09)
 
 ### feat
